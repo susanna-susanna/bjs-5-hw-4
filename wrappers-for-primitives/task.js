@@ -25,4 +25,10 @@ function sayHello() {
 function getGreeting(name) {
     // код для задачи №2 писать здесь
     //return greeting;
+    if (Boolean(name) === false || name == null || name == undefined) {
+        return `Привет, мир! Меня зовут Аноним`;
+    } else {
+        return `Привет, мир! Меня зовут ${name}`;
+    }
 }
+getGreeting("Vasya");
