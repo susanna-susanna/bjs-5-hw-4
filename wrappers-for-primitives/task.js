@@ -10,10 +10,13 @@ function calculateMortgage() {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
-
-    // код для задачи №1 писать здесь
+   // код для задачи №1 писать здесь
     //return totalAmount;
+    let P = 1/100/12* percent;
+    date = (new Date(2020, 5, 15).getTime() - Date.now()) / (1000*60*60*24*30);
+        return ((amount - contribution) * (P + P/(((1+P)**date)-1))) * date;
 }
+calculateTotalMortgage(10, 0, 20000, (new Date(2020, 5, 15).getTime() - Date.now()));
 
 function sayHello() {
     let name = window.personName.value;
