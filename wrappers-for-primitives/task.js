@@ -10,28 +10,30 @@ function calculateMortgage() {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
-   // код для задачи №1 писать здесь
-    //return totalAmount;
-    let P = 1/100/12* percent;
-    date = (new Date(2020, 5, 15).getTime() - Date.now()) / (1000*60*60*24*30);
-        return ((amount - contribution) * (P + P/(((1+P)**date)-1))) * date;
+  // код для задачи №1 писать здесь
+  //return totalAmount;
+  let P = 1/100/12* percent;
+  date = (new Date(date).getTime() - Date.now()) / (1000*60*60*24*30);
+  return ((amount - contribution) * (P + P/(((1+P)**date)-1))) * date;
 }
-calculateTotalMortgage(10, 0, 20000, (new Date(2020, 5, 15).getTime() - Date.now()));
+calculateTotalMortgage(10, 0, 20000, date);
 
 function sayHello() {
-    let name = window.personName.value;
-    let greeting = getGreeting(name);
-    let span = window.helloResult;
-    span.textContent = greeting;
+   let name = window.personName.value;
+   let greeting = getGreeting(name);
+   let span = window.helloResult;
+   span.textContent = greeting;
 }
 
 function getGreeting(name) {
     // код для задачи №2 писать здесь
     //return greeting;
-    if (Boolean(name) === false || name == null || name == undefined) {
-        return `Привет, мир! Меня зовут Аноним`;
-    } else {
-        return `Привет, мир! Меня зовут ${name}`;
-    }
+  let greeting = 'Привет, мир! Меня зовут ';
+  if (Boolean(name) === false || name === null || name == undefined) {
+    name = 'Аноним';
+    return greeting + name;
+  } else {
+    return greeting + name;
+  }
 }
-getGreeting("Vasya");
+getGreeting("");
